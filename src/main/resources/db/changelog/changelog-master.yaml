@@ -1,0 +1,113 @@
+databaseChangeLog:
+  - changeSet:
+      id: "1"
+      author: "simone.capone"
+      changes:
+        - createCollection:
+            collectionName: "bookings"
+        - createIndex:
+            collectionName: "bookings"
+            keys:
+              userId: 1
+              flightId: 1
+            unique: false
+        - createIndex:
+            collectionName: "bookings"
+            keys:
+              bookingDate: 1
+            unique: false
+
+  - changeSet:
+      id: "2"
+      author: "simone.capone"
+      changes:
+        - createCollection:
+            collectionName: "flights"
+        - createIndex:
+            collectionName: "flights"
+            keys:
+              flightNumber: 1
+            unique: true
+        - createIndex:
+            collectionName: "flights"
+            keys:
+              departureTime: 1
+              arrivalTime: 1
+            unique: false
+
+  - changeSet:
+      id: "3"
+      author: "simone.capone"
+      changes:
+        - createCollection:
+            collectionName: "payments"
+        - createIndex:
+            collectionName: "payments"
+            keys:
+              bookingId: 1
+            unique: false
+        - createIndex:
+            collectionName: "payments"
+            keys:
+              paymentDate: 1
+            unique: false
+
+  - changeSet:
+      id: "4"
+      author: "simone.capone"
+      changes:
+        - createCollection:
+            collectionName: "passengers"
+        - createIndex:
+            collectionName: "passengers"
+            keys:
+              bookingId: 1
+            unique: false
+        - createIndex:
+            collectionName: "passengers"
+            keys:
+              passportNumber: 1
+            unique: true
+
+  - changeSet:
+      id: "5"
+      author: "simone.capone"
+      changes:
+        - createCollection:
+            collectionName: "seats"
+        - createIndex:
+            collectionName: "seats"
+            keys:
+              flightId: 1
+              seatNumber: 1
+            unique: true
+
+  - changeSet:
+      id: "6"
+      author: "simone.capone"
+      changes:
+        - createCollection:
+            collectionName: "notifications"
+        - createIndex:
+            collectionName: "notifications"
+            keys:
+              userId: 1
+            unique: false
+        - createIndex:
+            collectionName: "notifications"
+            keys:
+              sentDate: 1
+            unique: false
+
+  - changeSet:
+      id: "7"
+      author: "simone.capone"
+      changes:
+        - createCollection:
+            collectionName: "luggage"
+        - createIndex:
+            collectionName: "luggage"
+            keys:
+              bookingId: 1
+              passengerId: 1
+            unique: false
